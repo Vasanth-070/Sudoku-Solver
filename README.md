@@ -1,2 +1,4 @@
 # Sudoku solver(9*9)
-basically its a 9*9 SUDOKU solver which returns a solved sudoku puzzle.
+ The code takes unsolved sodoku as input and returns a completely solved output to the console.
+ <br/>
+ The algorithm behind this programme is Backtracking which is implemented by C++ Programming language.<br/>
