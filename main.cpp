@@ -1,4 +1,3 @@
-#include <iostream>
 #include<Bits/stdc++.h>
 using namespace std;
  void printGrid(vector<vector<char>>grid) ;
@@ -96,19 +95,59 @@ bool findunassigned(vector<vector<char>>&board,int &row, int &col)
 } 
 int main()
 {
-   vector<char>r1{'.','.','9',  '.','4','.',   '.','.','.'};
-   vector<char>r2{'.','.','.',   '.','.','5',   '3','1','.'};
-   vector<char>r3{'.','6','1',   '.','.','8',   '.','5','.'};
-   vector<char>r4{'.','.','5',   '4','.','.',   '2','.','3'};
-   vector<char>r5{'.','1','.',   '.','.','7',   '.','.','8'};
-   vector<char>r6{'.','8','.',   '.','.','.',   '7','6','.'};
-   vector<char>r7{'3','.','6',   '.','1','9',   '4','.','.'};
-   vector<char>r8{'7','.','.',   '.','.','.',   '.','.','.'};
-   vector<char>r9{'.','.','4',   '.','5','.',   '6','2','7'};
-   vector<vector<char>>p{r1,r2,r3,r4,r5,r6,r7,r8,r9};
-   if(solveSudoku(p))
-       printGrid(p);
+    vector<char>r1{'.','.','9',  '.','4','.',   '.','.','.'};
+       vector<char>r2{'.','.','.',   '.','.','5',   '3','1','.'};
+       vector<char>r3{'.','6','1',   '.','.','8',   '.','5','.'};
+       vector<char>r4{'.','.','5',   '4','.','.',   '2','.','3'};
+       vector<char>r5{'.','1','.',   '.','.','7',   '.','.','8'};
+       vector<char>r6{'.','8','.',   '.','.','.',   '7','6','.'};
+       vector<char>r7{'3','.','6',   '.','1','9',   '4','.','.'};
+       vector<char>r8{'7','.','.',   '.','.','.',   '.','.','.'};
+       vector<char>r9{'.','.','4',   '.','5','.',   '6','2','7'};
+       vector<vector<char>>q{r1,r2,r3,r4,r5,r6,r7,r8,r9};
+    cout<<"Default Input:"<<endl;
+    printGrid(q);
+    char choice;
+    cout<<"Want to use default input or wanna try custom input?"<<endl;
+    cout<<endl;
+    cout<<"d--Default Input"<<endl;
+    cout<<"c--Custom Input"<<endl;
+    cout<<"Please select your choice from above:) :";
+    cin>>choice;
+    if(choice=='d'||choice=='D')
+    {
+       
+       if(solveSudoku(q))
+          {  cout<<"Completely solved sudoku:\n";
+    printGrid(q);}
        else
-           cout<<"missed it..!"<<endl;
+           cout<<"Invalid Sudoku input..!"<<endl;
+    }
+    else if(choice=='c'||choice=='C')
+    {
+        vector<vector<char>>p;
+    cout<<"Enter Custom Input below:"<<endl;
+   for(int i=0;i<9;i++)
+   {
+       vector<char>temp;
+       for(int j=0;j<9;j++)
+       {
+           char input;
+           cout<<"Enter element ["<<i+1<<","<<j+1<<"]:";cin>>input;
+           temp.push_back(input);
+       }
+       p.push_back(temp);
+   }
+   if(solveSudoku(p))
+   {
+       cout<<"Completely solved sudoku:\n";
+       printGrid(p);
+   }
+       else
+           cout<<"Invalid Sudoku input..!"<<endl;
+    }
+    else
+     {   cout<<"Invalid choice input!!!"<<endl;}
+    
 	return 0;
 }
